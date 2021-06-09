@@ -24,7 +24,18 @@ class UnoGame:
     def reverse(self):
         self.direction = -self.direction
     
-    def 
+    def skipTurn(self):
+        self.nextTurn()
+        self.nextTurn()
+        
+    def getNextPlayer(self):
+        playerID = self.turn + self.direction
+        if playerID == -1:
+            playerID = len(self.playerList)-1
+        elif playerID == len(self.playerList)-1:
+            playerID = 0
+        return self.hands[playerID].playerName
+        
     def checkForGameOver(self):
         for hand in self.hands:
             if len(hand)==0:
